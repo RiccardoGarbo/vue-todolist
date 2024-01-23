@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!--Vue-->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!--JS data-->
+    <script src="js/data.js"></script>
     <!--JS-->
     <script defer src="js/script.js"></script>
 
@@ -30,6 +32,8 @@
                 <h1 class="text-center">Cose da fare</h1>
             </header>
             <main>
+                <input v-for="listItem in listItems" v-model="listItem.text" type="text" class="form-control"
+                    :class="{'text-decoration-line-through':listItem.done=true}">
 
             </main>
         </div>
