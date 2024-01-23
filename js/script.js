@@ -15,6 +15,14 @@ const app = createApp({
         //funzione per aggiungere un item
         addListItem() {
             this.listItems.push(this.newListItem)
+        },
+        //funzione per invertire true e false
+        reverseValue(id) {
+            this.listItems.forEach(listItem => {
+                if (id === listItem.id) {
+                    listItem.done = !listItem.done
+                }
+            });
         }
     },
 

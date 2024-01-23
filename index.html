@@ -34,8 +34,15 @@
             <main>
                 <ul class="list-group">
                     <li v-for="listItem in listItems" class="list-group-item d-flex justify-content-between"
-                        :class="{'text-decoration-line-through': listItem.done ===true}"
-                        class="d-flex justify-content-between">{{listItem.text}}
+                        class="d-flex justify-content-between">
+                        <div class="form-check">
+                            <label class="form-check-label"
+                                :class="{'text-decoration-line-through': listItem.done ===true}"
+                                @click="reverseValue(listItem.id)">
+                                <input v-model="listItem.done" class="form-check-input" type="checkbox">
+                                {{listItem.text}}
+                            </label>
+                        </div>
                         <button type="button" class="btn-close" @click="deleteItem(listItem.id)"></button>
                     </li>
                     <li class="list-group-item">
@@ -47,6 +54,7 @@
                         </div>
                     </li>
                 </ul>
+                <h2 class="text-center" v-show="!listItems.length">Non ci sono list item</h2>
             </main>
         </div>
     </div>
