@@ -38,6 +38,14 @@
                         class="d-flex justify-content-between">{{listItem.text}}
                         <button type="button" class="btn-close" @click="deleteItem(listItem.id)"></button>
                     </li>
+                    <li class="list-group-item">
+                        <div class="input-group">
+                            <input @keyup.enter="addListItem" type="text" class="form-control" placeholder="Add Item"
+                                v-model.trim="newListItem.text">
+                            <button @click="addListItem" class="btn btn-outline-secondary" type="button">
+                                <i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </li>
                 </ul>
             </main>
         </div>
