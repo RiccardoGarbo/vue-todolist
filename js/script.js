@@ -5,6 +5,12 @@ const app = createApp({
             listItems
 
         }
+    },
+    methods: {
+        deleteItem(id) {
+            this.listItems = this.listItems.filter(listItem => id !== listItem.id)
+
+        }
     }
 })
 app.mount('#root')

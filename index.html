@@ -32,15 +32,16 @@
                 <h1 class="text-center">Cose da fare</h1>
             </header>
             <main>
-                <input v-for="listItem in listItems" v-model="listItem.text" type="text" class="form-control"
-                    :class="{'text-decoration-line-through':listItem.done=true}">
-
+                <ul class="list-group">
+                    <li v-for="listItem in listItems" class="list-group-item d-flex justify-content-between"
+                        :class="{'text-decoration-line-through': listItem.done ===true}"
+                        class="d-flex justify-content-between">{{listItem.text}}
+                        <button type="button" class="btn-close" @click="deleteItem(listItem.id)"></button>
+                    </li>
+                </ul>
             </main>
         </div>
-
-
     </div>
-
 </body>
 
 </html>
